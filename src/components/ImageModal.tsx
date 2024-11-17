@@ -40,8 +40,15 @@ export function ImageModal({ photo, onClose }: ImageModalProps) {
         <ScrollArea className="max-h-[90vh]">
           <div className="p-6">
             <DialogHeader>
-              <DialogTitle className="flex items-center justify-between">
-                <span>Photo by {photo.photographer}</span>
+              <DialogTitle>Photo by {photo.photographer}</DialogTitle>
+            </DialogHeader>
+            <div className="mt-4">
+              <img
+                src={photo.src.large2x}
+                alt={`Photo by ${photo.photographer}`}
+                className="w-full h-auto rounded-lg"
+              />
+              <div className="mt-4 flex justify-between items-center">
                 <a
                   href={photo.url}
                   target="_blank"
@@ -51,15 +58,6 @@ export function ImageModal({ photo, onClose }: ImageModalProps) {
                   View on Pexels
                   <ExternalLink className="h-4 w-4" />
                 </a>
-              </DialogTitle>
-            </DialogHeader>
-            <div className="mt-4">
-              <img
-                src={photo.src.large2x}
-                alt={`Photo by ${photo.photographer}`}
-                className="w-full h-auto rounded-lg"
-              />
-              <div className="mt-4 flex justify-end">
                 <Button onClick={handleDownload} className="flex items-center gap-2">
                   <Download className="h-4 w-4" />
                   Download
