@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Free Images Explorer
 
 ## Project info
 
