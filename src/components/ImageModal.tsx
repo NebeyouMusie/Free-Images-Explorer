@@ -35,7 +35,7 @@ export function ImageModal({ photo, onClose }: ImageModalProps) {
   };
 
   return (
-    <Dialog open={!!photo} onOpenChange={() => onClose()}>
+    <Dialog open={!!photo} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-4xl max-h-[90vh] p-0">
         <ScrollArea className="max-h-[90vh]">
           <div className="p-6">
