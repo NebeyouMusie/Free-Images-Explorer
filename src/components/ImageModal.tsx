@@ -36,11 +36,11 @@ export function ImageModal({ photo, onClose }: ImageModalProps) {
 
   return (
     <Dialog open={!!photo} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+      <DialogContent className="max-w-4xl max-h-[90vh] flex flex-col p-0">
         <DialogHeader className="p-6">
           <DialogTitle>Photo by {photo.photographer}</DialogTitle>
         </DialogHeader>
-        <ScrollArea className="max-h-[calc(90vh-8rem)]">
+        <ScrollArea className="flex-1">
           <div className="p-6 pt-0">
             <img
               src={photo.src.large2x}
@@ -49,7 +49,7 @@ export function ImageModal({ photo, onClose }: ImageModalProps) {
             />
           </div>
         </ScrollArea>
-        <div className="p-6 border-t flex items-center justify-between">
+        <div className="p-6 border-t flex items-center justify-between mt-auto">
           <a
             href={photo.url}
             target="_blank"

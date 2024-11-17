@@ -11,17 +11,10 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { toast } = useToast();
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["photos", searchQuery],
-    queryFn: () =>
-      searchQuery ? searchPhotos(searchQuery) : getCuratedPhotos(),
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to fetch images. Please try again later.",
-        variant: "destructive",
-      });
-    },
+    queryFn: () => searchQuery ? searchPhotos(searchQuery) : getCuratedPhotos(),
+    retry: false,
   });
 
   const handleSearch = (query: string) => {
